@@ -12,11 +12,14 @@ let package = Package(
             targets: ["BasePackage"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/09samit/plcrashreporter-master.git", from: "1.0.0")
     ],
     targets: [
         .target(
             name: "BasePackage",
-            dependencies: []),
+            dependencies: [
+                .product(name: "CrashReporter", package: "plcrashreporter-master")
+            ]),
         .testTarget(
             name: "BasePackageTests",
             dependencies: ["BasePackage"]),
